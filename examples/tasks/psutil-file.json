@@ -22,9 +22,9 @@
                     "process": null,
                     "publish": [
                         {
-                            "plugin_name": "mock-file",
+                            "plugin_name": "file",
                             "config": {
-                                "file": "/tmp/published_psutil"
+                                "file": "/tmp/psutil.log"
                             }
                         }
                     ],

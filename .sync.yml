@@ -1,10 +1,14 @@
 ---
 :global:
   build:
+    # NOTE: MacOS removed from matrix due to cgo requirements
     matrix:
       - GOOS: linux
         GOARCH: amd64
 .travis.yml:
+  sudo: true
+  services:
+    - docker
   env:
     global:
       - ORG_PATH=/home/travis/gopath/src/github.com/intelsdi-x
@@ -12,6 +16,10 @@
     matrix:
       - TEST_TYPE=small
       - TEST_TYPE=medium
+      - SNAP_VERSION: latest
+        TEST_TYPE: large
+      - SNAP_VERSION: latest_build
+        TEST_TYPE: large
   deploy:
     access_key_id: AKIAINMB43VSSPFZISAA
     secret_access_key:
